@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Licenses Photography",
+    "Price": 699,
+    "description": "A photography license is a contract in which the photographer grants specific rights to the client who wants to use your image(s) for a stipulated amount of time. The client is free to use the photos in any way that doesn't go beyond the scope of the agreement. Sounds simple, right? While there are legalities associated with it, it isn't rocket science. Learn how to license photos, make a contract, grant the client the rights to use your images, and once the contract ends, the client can make no more use your images. The flip-side, however, is that this rarely happens. In most cases, the moment the client receives the images, everything spirals out of control."
+  },
+  {
+    "id": 2,
+    "name": "Advertising Photography",
+    "Price": 499,
+    "description": "Advertising photography is flashier. It's the kind of photography you might be more likely to see spread across a few pages in a magazine. Advertising photos are more about capturing an idea or a feeling. It's much more promotional than commercial photography."
+  },
+  {
+    "id": 3,
+    "name": "Floral Photography",
+    "Price": 499,
+    "description": "Working closely with florists to create floral arrangements for e-commerce websites, social media and print collateral. Jamie Lau specialisms in product photography with attention to detail that shows the exact color and size of bouquets for online shops, to lifestyle photography with models and varied environments."
+  }
+]
