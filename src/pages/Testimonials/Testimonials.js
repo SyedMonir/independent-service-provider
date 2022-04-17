@@ -36,24 +36,24 @@ const Testimonials = () => {
             </div>
           </div>
 
-          <div class="p-4 md:w-1/2 w-full">
-            <div class="h-full bg-gray-800 bg-opacity-40 p-8 rounded">
+          <div className="p-4 md:w-1/2 w-full">
+            <div className="h-full bg-gray-800 bg-opacity-40 p-8 rounded">
               <FaQuoteRight className="block w-5 h-5 text-gray-500 mb-4" />
-              <p class="leading-relaxed mb-6">
+              <p className="leading-relaxed mb-6">
                 Photography is a way of feeling, of touching, of loving. What
                 you have caught on film is captured forever... it remembers
                 little things after have forgotten everything. Photography
                 powerful medium expression and communications, offers an
                 infinite variety of perception, interpretation.
               </p>
-              <a href="/" class="inline-flex items-center">
+              <a href="/" className="inline-flex items-center">
                 <img
                   alt="testimonial"
                   src="https://dummyimage.com/107x107"
-                  class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center"
+                  className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center"
                 />
-                <span class="flex-grow flex flex-col pl-4">
-                  <span class="title-font font-medium text-white">
+                <span className="flex-grow flex flex-col pl-4">
+                  <span className="title-font font-medium text-white">
                     Alper Kamu
                   </span>
                 </span>

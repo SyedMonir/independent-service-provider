@@ -1,9 +1,19 @@
 import React from 'react';
+import useService from '../../../hooks/useService';
+import Service from '../../SharedPage/Service';
+import Spinner from '../../SharedPage/Spinner';
 
 const ServicesHalf = () => {
+  const [services, spinner] = useService();
   return (
     <>
-      <h1>Service</h1>
+      {spinner ? (
+        <Spinner />
+      ) : (
+        services.map((service) => (
+          <Service key={service.id} service={service}></Service>
+        ))
+      )}
     </>
   );
 };
