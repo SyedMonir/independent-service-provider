@@ -16,7 +16,7 @@ const Checkout = () => {
         <section>
           <div className="mt-10">
             <h2 className="flex items-center justify-center font-bold text-white text-md lg:text-3xl">
-              Please provide your shipping address
+              Please provide your shipping address first
             </h2>
           </div>
           <div className="container p-12 mx-auto">
