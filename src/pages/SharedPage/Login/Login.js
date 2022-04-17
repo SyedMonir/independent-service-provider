@@ -118,6 +118,7 @@ const Login = () => {
                   onBlur={getEmailOnBlur}
                   type="email"
                   placeholder="Email"
+                  required
                   className="w-full px-4 py-2 mt-2 border text-black rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                 />
               </div>
@@ -127,6 +128,7 @@ const Login = () => {
                   onBlur={getPasswordOnBlur}
                   type="password"
                   placeholder="Password"
+                  required
                   className="w-full px-4 py-2 mt-2 text-black border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                 />
               </div>

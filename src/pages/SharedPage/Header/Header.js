@@ -6,7 +6,7 @@ import auth from '../../../Firebase.init';
 import './Header.css';
 import { HiMenuAlt1 } from 'react-icons/hi';
 import Spinner from '../Spinner';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Header = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -109,7 +109,7 @@ const Header = () => {
                     tabIndex="0"
                     className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-44"
                   >
-                    <li onClick={logout} className="cursor-pointer ">
+                    <li onClick={logout} className="cursor-pointer mx-auto">
                       <Link to={'/'} className="justify-between">
                         Profile
                         <span className="badge">New</span>
@@ -122,6 +122,7 @@ const Header = () => {
               )}
             </ul>
           </div>
+          <ToastContainer />
         </div>
       )}
     </>

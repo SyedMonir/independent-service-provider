@@ -88,7 +88,7 @@ const Signup = () => {
   // Redirect
   let navigate = useNavigate();
   let location = useLocation();
-  const from = location.state?.from?.pathname || '/';
+  const from = location.state?.from?.pathname || '/login';
   useEffect(() => {
     if (user) {
       navigate(from);
@@ -96,7 +96,7 @@ const Signup = () => {
   }, [user]);
 
   useEffect(() => {
-    console.log(createUserError);
+    // console.log(createUserError);
     if (createUserError) {
       switch (createUserError?.code) {
         case 'auth/invalid-email':
@@ -148,6 +148,7 @@ const Signup = () => {
                     onBlur={getEmailOnBlur}
                     type="email"
                     placeholder="Email"
+                    required
                     className="w-full px-4 py-2 mt-2 border text-black rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                   />
                 </div>
@@ -157,6 +158,7 @@ const Signup = () => {
                     onBlur={getPasswordOnBlur}
                     type="password"
                     placeholder="Password"
+                    required
                     className="w-full px-4 py-2 mt-2 text-black border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                   />
                 </div>
@@ -166,6 +168,7 @@ const Signup = () => {
                     type="password"
                     id="confirmPassword"
                     placeholder="Password"
+                    required
                     className="w-full px-4 py-2 mt-2 text-black border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                   />
                 </div>
