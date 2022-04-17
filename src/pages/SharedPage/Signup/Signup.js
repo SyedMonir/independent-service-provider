@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import auth from '../../../Firebase.init';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from 'react-firebase-hooks/auth';
 import Spinner from '../Spinner';
 import { toast, ToastContainer } from 'react-toastify';
 
@@ -9,18 +12,27 @@ const Signup = () => {
   const [createUserWithEmailAndPassword, user, loading, createUserError] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
+  const [updateProfile, updating, updateUserError] = useUpdateProfile(auth);
+
   const [createUser, setCreateUser] = useState({
-    name: '',
+    displayName: '',
     email: '',
     password: '',
   });
 
   const [error, setError] = useState({
+    name: '',
     email: '',
     password: '',
     general: '',
   });
 
+  // Getting name on blur
+  const getNameBlur = (event) => {
+    setCreateUser({ ...createUser, displayName: event.target.value });
+  };
+
+  // Getting email on blur
   const getEmailOnBlur = (event) => {
     const validTest = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
     const validMail = validTest.test(event.target.value);
@@ -34,6 +46,7 @@ const Signup = () => {
     }
   };
 
+  // Getting password on blur
   const getPasswordOnBlur = (event) => {
     const validTest = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
     const validPassword = validTest.test(event.target.value);
@@ -49,15 +62,27 @@ const Signup = () => {
     }
   };
 
-  const handleSignup = (event) => {
+  //   Creating user
+  const handleSignup = async (event) => {
     event.preventDefault();
     const confirmPassword = event.target.confirmPassword.value;
     if (confirmPassword === createUser.password) {
-      createUserWithEmailAndPassword(createUser.email, createUser.password);
+      await createUserWithEmailAndPassword(
+        createUser.email,
+        createUser.password
+      );
       setError({ ...error, general: '' });
     } else {
       setError({ ...error, general: 'Password must be same!' });
     }
+
+    // Updated Profile Name
+    await updateProfile({ displayName: createUser.displayName });
+    if (updateUserError) {
+      setError({ ...error, name: 'Enter your name' });
+      return;
+    }
+    toast.success('Created User!');
   };
 
   useEffect(() => {
@@ -77,10 +102,12 @@ const Signup = () => {
       }
     }
   }, [createUserError]);
+
+  console.log(user?.user);
   return (
     <>
       <div className="flex items-center justify-center min-h-screen bg-base-300">
-        {loading ? (
+        {loading || updating ? (
           <Spinner />
         ) : (
           <div className="px-8 py-6 mx-4 my-8 text-left bg-base-100 shadow-2xl w-full md:w-2/3 lg:w-1/3 sm:w-10/12">
@@ -95,8 +122,10 @@ const Signup = () => {
                     Name
                   </label>
                   <input
+                    onBlur={getNameBlur}
                     type="text"
                     placeholder="Name"
+                    id="Name"
                     className="w-full px-4 py-2 mt-2 text-black border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                   />
                 </div>
