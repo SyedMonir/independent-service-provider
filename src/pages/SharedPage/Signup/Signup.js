@@ -7,6 +7,7 @@ import {
 } from 'react-firebase-hooks/auth';
 import Spinner from '../Spinner';
 import { toast, ToastContainer } from 'react-toastify';
+import SocialSignIn from '../SocialSignIn';
 
 const Signup = () => {
   const [createUserWithEmailAndPassword, user, loading, createUserError] =
@@ -191,6 +192,8 @@ const Signup = () => {
                 </div>
               </div>
             </form>
+            <div className="divider">OR</div>
+            <SocialSignIn />
             <ToastContainer />
           </div>
         )}

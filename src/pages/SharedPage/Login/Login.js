@@ -6,6 +6,7 @@ import {
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../../Firebase.init';
+import SocialSignIn from '../SocialSignIn';
 import Spinner from '../Spinner';
 
 const Login = () => {
@@ -156,6 +157,8 @@ const Login = () => {
               </div>
             </div>
           </form>
+          <div className="divider">OR</div>
+          <SocialSignIn />
           <ToastContainer />
         </div>
       )}
