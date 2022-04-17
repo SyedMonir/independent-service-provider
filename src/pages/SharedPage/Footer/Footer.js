@@ -9,10 +9,10 @@ const Footer = () => {
     <>
       <footer className="footer p-10 bg-base-200 text-white">
         <div>
-          <h2 className="text-4xl">
+          <h2 className="text-4xl tracking-[.3rem]">
             theSyed <br /> Wild Photographer
           </h2>
-          <p>
+          <p className="text-sm">
             <br />
             Providing service tech since 2021
           </p>

@@ -5,8 +5,10 @@ const Signup = () => {
   return (
     <>
       <div className="flex items-center justify-center min-h-screen bg-base-300">
-        <div className="px-8 py-6 mx-4 mt-4 text-left bg-white shadow-lg w-full md:w-2/3 lg:w-1/3 sm:w-10/12">
-          <div className="flex justify-center">theSyed</div>
+        <div className="px-8 py-6 mx-4 my-8 text-left bg-base-100 shadow-2xl w-full md:w-2/3 lg:w-1/3 sm:w-10/12">
+          <div className="flex justify-center text-2xl tracking-[.4rem]">
+            theSyed
+          </div>
           <h3 className="text-2xl font-bold text-center">Join us</h3>
           <form>
             <div className="mt-4">

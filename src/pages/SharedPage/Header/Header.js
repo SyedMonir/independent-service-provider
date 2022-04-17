@@ -42,7 +42,10 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          <Link to={'/'} className="btn btn-ghost normal-case brand">
+          <Link
+            to={'/'}
+            className="btn btn-ghost normal-case brand tracking-[.2rem]"
+          >
             theSyed
           </Link>
         </div>
