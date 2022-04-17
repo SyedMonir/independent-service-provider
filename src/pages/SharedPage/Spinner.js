@@ -3,9 +3,9 @@ import { PropagateLoader } from 'react-spinners';
 
 const Spinner = () => {
   return (
-    <>
-      <PropagateLoader color={'black'} size={150} />
-    </>
+    <div className=" absolute top-2/4 left-2/4 z-50">
+      <PropagateLoader color={'white'} size={80} />
+    </div>
   );
 };
 
