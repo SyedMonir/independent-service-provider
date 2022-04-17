@@ -3,7 +3,7 @@ import { FaQuoteRight } from 'react-icons/fa';
 
 const Testimonials = () => {
   return (
-    <section className="text-gray-400 bg-gray-900 body-font">
+    <section id="testimonials" className="text-gray-400 bg-gray-900 body-font">
       <div className="container px-5 py-20 mx-auto">
         <h3 className="text-3xl  font-medium title-font text-white mb-4 text-center">
           Testimonials

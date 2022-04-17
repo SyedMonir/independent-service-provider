@@ -42,6 +42,12 @@ const Header = () => {
                 <li>
                   <NavLink to={'/services'}>Services</NavLink>
                 </li>
+                <li>
+                  <NavLink to={'/blogs'}>Blogs</NavLink>
+                </li>
+                <li>
+                  <NavLink to={'/about-me'}>About me</NavLink>
+                </li>
                 {user?.uid ? (
                   <li
                     onClick={logout}
@@ -75,6 +81,12 @@ const Header = () => {
               </li>
               <li>
                 <NavLink to={'/services'}>Services</NavLink>
+              </li>
+              <li>
+                <NavLink to={'/blogs'}>Blogs</NavLink>
+              </li>
+              <li>
+                <NavLink to={'/about-me'}>About me</NavLink>
               </li>
 
               {user?.uid ? (

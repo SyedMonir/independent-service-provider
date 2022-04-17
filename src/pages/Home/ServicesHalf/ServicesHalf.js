@@ -10,7 +10,7 @@ const ServicesHalf = () => {
       {spinner ? (
         <Spinner />
       ) : (
-        <section className="bg-black">
+        <section id="featured-services" className="bg-black">
           <h1 className="text-center pt-8 pb-5  text-3xl text-white uppercase tracking-wider">
             Checkout my services
           </h1>
