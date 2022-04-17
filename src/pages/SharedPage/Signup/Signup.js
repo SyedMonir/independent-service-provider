@@ -86,6 +86,7 @@ const Signup = () => {
   };
 
   useEffect(() => {
+    console.log(createUserError);
     if (createUserError) {
       switch (createUserError?.code) {
         case 'auth/invalid-email':

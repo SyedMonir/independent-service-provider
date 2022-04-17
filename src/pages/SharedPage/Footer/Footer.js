@@ -10,7 +10,8 @@ const Footer = () => {
       <footer className="footer p-10 bg-base-200 text-white">
         <div>
           <h2 className="text-4xl tracking-[.3rem]">
-            theSyed <br /> Wild Photographer
+            <span className="tracking-[.3rem]">theSyed</span> <br /> Wild
+            Photographer
           </h2>
           <p className="text-sm">
             <br />
