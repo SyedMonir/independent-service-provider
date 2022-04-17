@@ -1,6 +1,5 @@
 .navbar .active {
     background-color: transparent;
-    font-size: 1.1rem;
     font-weight: 600;
     border-bottom: 2px solid white;
     border-radius: 0 !important;
@@ -8,5 +7,9 @@
 
 .navbar a {
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: 500;
+}
+
+.navbar .brand {
+    font-size: 1.5rem;
 }

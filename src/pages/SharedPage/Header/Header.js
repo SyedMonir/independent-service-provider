@@ -34,9 +34,15 @@ const Header = () => {
               <li>
                 <NavLink to={'/services'}>Services</NavLink>
               </li>
+              <li>
+                <NavLink to={'/signup'}>Signup</NavLink>
+              </li>
+              <li>
+                <NavLink to={'/login'}>Login</NavLink>
+              </li>
             </ul>
           </div>
-          <Link to={'/'} className="btn btn-ghost normal-case text-2xl">
+          <Link to={'/'} className="btn btn-ghost normal-case brand">
             theSyed
           </Link>
         </div>
@@ -47,6 +53,12 @@ const Header = () => {
             </li>
             <li>
               <NavLink to={'/services'}>Services</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/signup'}>Signup</NavLink>
+            </li>
+            <li>
+              <NavLink to={'/login'}>Login</NavLink>
             </li>
           </ul>
         </div>

@@ -22,7 +22,9 @@ const HeroSection = () => {
               moments that were happy and healthy. I saw a photo as a way to go
               back to a memory if I ever needed to.
             </p>
-            <button className="btn bg-black text-white px-8">Hire Me</button>
+            <button className="btn bg-black text-white px-8 text-center tracking-[.3rem]">
+              Hire Me
+            </button>
           </div>
         </div>
       </div>
