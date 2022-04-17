@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+} from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../../Firebase.init';
@@ -8,6 +11,9 @@ import Spinner from '../Spinner';
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, signInError] =
     useSignInWithEmailAndPassword(auth);
+
+  const [sendPasswordResetEmail, sending, resetPasswordError] =
+    useSendPasswordResetEmail(auth);
 
   const [signInUser, setSignInUser] = useState({
     email: '',
@@ -46,9 +52,16 @@ const Login = () => {
     toast.success('Logged In');
   };
 
+  // Forget Password
+  const forgetPassword = async () => {
+    await sendPasswordResetEmail(signInUser.email);
+    toast.success('Reset password mail sent!');
+  };
+
   // Handling Error
   useEffect(() => {
     if (signInError) {
+      console.log(signInError);
       switch (signInError?.code) {
         case 'auth/invalid-email':
           toast.error('Invalid email provided, please provide a valid email');
@@ -63,12 +76,22 @@ const Login = () => {
           toast.warn('Something went wrong');
       }
     }
-  }, [signInError]);
+    if (resetPasswordError) {
+      console.log(resetPasswordError);
+      switch (resetPasswordError?.code) {
+        case 'auth/missing-email':
+          toast.error('Missing Email');
+          break;
+        default:
+          toast.warn('Something went wrong');
+      }
+    }
+  }, [signInError, resetPasswordError]);
 
   console.log(user?.user);
   return (
     <div className="flex items-center justify-center min-h-screen bg-base-300">
-      {loading ? (
+      {loading || sending ? (
         <Spinner />
       ) : (
         <div className="px-8 py-6 mx-4 my-8 text-left bg-base-100 shadow-2xl w-full md:w-2/3 lg:w-1/3 sm:w-10/12">
@@ -108,11 +131,16 @@ const Login = () => {
                   Login
                 </button>
               </div>
-              <div className="mt-6 text-grey-dark">
-                Create an account?{' '}
+              <div className="mt-6 text-grey-dark flex justify-between">
                 <Link to={'/signup'} className="text-blue-600 hover:underline">
-                  Sign up
+                  Create account!
                 </Link>
+                <label
+                  onClick={forgetPassword}
+                  className="text-blue-600 hover:underline cursor-pointer"
+                >
+                  Forget Password?
+                </label>
               </div>
             </div>
           </form>
