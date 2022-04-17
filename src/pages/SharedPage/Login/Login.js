@@ -3,7 +3,7 @@ import {
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
 } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../../Firebase.init';
 import Spinner from '../Spinner';
@@ -52,6 +52,16 @@ const Login = () => {
     toast.success('Logged In');
   };
 
+  // Redirect
+  let navigate = useNavigate();
+  let location = useLocation();
+  const from = location.state?.from?.pathname || '/';
+  useEffect(() => {
+    if (user) {
+      navigate(from);
+    }
+  }, [user]);
+
   // Forget Password
   const forgetPassword = async () => {
     await sendPasswordResetEmail(signInUser.email);
@@ -88,7 +98,7 @@ const Login = () => {
     }
   }, [signInError, resetPasswordError]);
 
-  console.log(user?.user);
+  // console.log(user?.user);
   return (
     <div className="flex items-center justify-center min-h-screen bg-base-300">
       {loading || sending ? (

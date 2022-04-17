@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../Firebase.init';
 import {
   useCreateUserWithEmailAndPassword,
@@ -85,6 +85,16 @@ const Signup = () => {
     toast.success('Created User!');
   };
 
+  // Redirect
+  let navigate = useNavigate();
+  let location = useLocation();
+  const from = location.state?.from?.pathname || '/';
+  useEffect(() => {
+    if (user) {
+      navigate(from);
+    }
+  }, [user]);
+
   useEffect(() => {
     console.log(createUserError);
     if (createUserError) {
@@ -104,7 +114,7 @@ const Signup = () => {
     }
   }, [createUserError]);
 
-  console.log(user?.user?.emailVerified);
+  // console.log(user?.user?.emailVerified);
   return (
     <>
       <div className="flex items-center justify-center min-h-screen bg-base-300">

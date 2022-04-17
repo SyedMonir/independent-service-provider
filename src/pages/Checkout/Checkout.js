@@ -8,7 +8,6 @@ const Checkout = () => {
   const { serviceId } = useParams();
   const [services, spinner] = useService();
   const selectedService = services.find((service) => service.id === +serviceId);
-  console.log(selectedService);
   return (
     <>
       {spinner ? (

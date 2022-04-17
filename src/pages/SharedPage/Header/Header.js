@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 
 const Header = () => {
   const [user, loading, error] = useAuthState(auth);
-  console.log(user);
+  // console.log(user);
 
   const logout = () => {
     signOut(auth);
@@ -110,9 +110,9 @@ const Header = () => {
                     className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-44"
                   >
                     <li onClick={logout} className="cursor-pointer ">
-                      <Link to={'/'} class="justify-between">
+                      <Link to={'/'} className="justify-between">
                         Profile
-                        <span class="badge">New</span>
+                        <span className="badge">New</span>
                       </Link>
                     </li>
                   </ul>
