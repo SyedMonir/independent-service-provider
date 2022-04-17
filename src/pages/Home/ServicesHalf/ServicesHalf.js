@@ -7,6 +7,9 @@ const ServicesHalf = () => {
   const [services, spinner] = useService();
   return (
     <>
+      <h1 className="text-center my-8 text-3xl text-white uppercase tracking-wider">
+        Checkout my services
+      </h1>
       {spinner ? (
         <Spinner />
       ) : (
