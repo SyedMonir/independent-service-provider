@@ -4,6 +4,7 @@ import AboutMe from './pages/AboutMe/AboutMe';
 import Blogs from './pages/Blogs/Blogs';
 import Checkout from './pages/Checkout/Checkout';
 import Home from './pages/Home/Home';
+import ServiceDetails from './pages/ServiceDetails/ServiceDetails';
 import Services from './pages/Services/Services';
 import Footer from './pages/SharedPage/Footer/Footer';
 import Header from './pages/SharedPage/Header/Header';
@@ -29,6 +30,10 @@ function App() {
                 <Checkout />
               </RequiredAuth>
             }
+          />
+          <Route
+            path="/service-details/:serviceId"
+            element={<ServiceDetails />}
           />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/about" element={<AboutMe />} />
