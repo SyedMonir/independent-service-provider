@@ -8,6 +8,7 @@ import Services from './pages/Services/Services';
 import Footer from './pages/SharedPage/Footer/Footer';
 import Header from './pages/SharedPage/Header/Header';
 import Login from './pages/SharedPage/Login/Login';
+import NoRoute from './pages/SharedPage/NoRoute/NoRoute';
 import RequiredAuth from './pages/SharedPage/RequiredAuth/RequiredAuth';
 import Signup from './pages/SharedPage/Signup/Signup';
 
@@ -31,7 +32,7 @@ function App() {
           />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/about" element={<AboutMe />} />
-          <Route path="*" element={<Home />} />
+          <Route path="*" element={<NoRoute />} />
         </Routes>
       </main>
       <Footer />

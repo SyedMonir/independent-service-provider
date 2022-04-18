@@ -111,7 +111,7 @@ const Header = () => {
                 <div className="dropdown dropdown-end">
                   <label
                     tabIndex="0"
-                    className="btn btn-ghost btn-circle avatar"
+                    className="btn btn-ghost btn-circle avatar online"
                   >
                     <div className="w-10 border-2 rounded-full pt-1 text-xl">
                       {user?.email.slice(0, 1)}

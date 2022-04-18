@@ -54,8 +54,8 @@ const Login = () => {
   };
 
   // Redirect
-  let navigate = useNavigate();
-  let location = useLocation();
+  const navigate = useNavigate();
+  const location = useLocation();
   const from = location.state?.from?.pathname || '/';
   useEffect(() => {
     if (user) {

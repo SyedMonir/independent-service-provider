@@ -73,6 +73,7 @@ const Signup = () => {
         createUser.password
       );
       setError({ ...error, general: '' });
+      toast.success('Created User!');
     } else {
       setError({ ...error, general: 'Password must be same!' });
     }
@@ -83,13 +84,12 @@ const Signup = () => {
       setError({ ...error, name: 'Enter your name' });
       return;
     }
-    toast.success('Created User!');
   };
 
   // Redirect
-  let navigate = useNavigate();
-  let location = useLocation();
-  const from = location.state?.from?.pathname || '/login';
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
   useEffect(() => {
     if (user) {
       navigate(from);

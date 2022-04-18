@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import background from '../../../images/hero.jpg';
 
 const HeroSection = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div
@@ -22,7 +24,10 @@ const HeroSection = () => {
               moments that were happy and healthy. I saw a photo as a way to go
               back to a memory if I ever needed to.
             </p>
-            <button className="btn bg-black text-white px-8 text-center tracking-[.3rem]">
+            <button
+              onClick={() => navigate(`/services`)}
+              className="btn bg-black text-white px-8 text-center tracking-[.3rem]"
+            >
               Hire Me
             </button>
           </div>
