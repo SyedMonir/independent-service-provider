@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import {
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
 } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../../Firebase.init';
 import SocialSignIn from '../SocialSignIn';
+import { FcGoogle } from 'react-icons/fc';
 import Spinner from '../Spinner';
 
 const Login = () => {
@@ -15,6 +17,13 @@ const Login = () => {
 
   const [sendPasswordResetEmail, sending, resetPasswordError] =
     useSendPasswordResetEmail(auth);
+
+  const [signInWithGoogle, googleUser, googleLoading, goggleError] =
+    useSignInWithGoogle(auth);
+  if (goggleError) {
+    // console.log(error);
+    toast.error(goggleError.message);
+  }
 
   const [signInUser, setSignInUser] = useState({
     email: '',
@@ -53,15 +62,19 @@ const Login = () => {
     toast.success('Logged In');
   };
 
+  const handleGoogle = () => {
+    signInWithGoogle();
+  };
+
   // Redirect
   let navigate = useNavigate();
   let location = useLocation();
   const from = location.state?.from?.pathname || '/';
   useEffect(() => {
-    if (user) {
+    if (user || googleUser) {
       navigate(from);
     }
-  }, [user]);
+  }, [user, googleUser]);
 
   // Forget Password
   const forgetPassword = async () => {
@@ -102,7 +115,7 @@ const Login = () => {
   // console.log(user?.user);
   return (
     <div className="flex items-center justify-center min-h-screen bg-base-300">
-      {loading || sending ? (
+      {loading || sending || googleLoading ? (
         <Spinner />
       ) : (
         <div className="px-8 py-6 mx-4 my-8 text-left bg-base-100 shadow-2xl w-full md:w-2/3 lg:w-1/3 sm:w-10/12">
@@ -158,7 +171,16 @@ const Login = () => {
             </div>
           </form>
           <div className="divider">OR</div>
-          <SocialSignIn />
+          {/* <SocialSignIn /> */}
+          <button
+            onClick={handleGoogle}
+            className="text-black bg-white py-2 p-8 rounded-3xl mx-auto flex items-center"
+          >
+            <span className="mr-4">
+              <FcGoogle size={'2rem'} />
+            </span>{' '}
+            Continue with google
+          </button>
           <ToastContainer />
         </div>
       )}

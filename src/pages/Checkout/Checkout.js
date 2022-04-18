@@ -216,7 +216,7 @@ const Checkout = () => {
               <h3 className="font-bold text-lg text-center">
                 Thank you! For hiring me!
               </h3>
-              <p class="py-4">
+              <p className="py-4">
                 You've been selected{' '}
                 <span className="text-lg font-bold text-white">
                   {selectedService?.name}
