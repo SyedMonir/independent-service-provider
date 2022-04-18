@@ -121,7 +121,7 @@ const Header = () => {
                     tabIndex="0"
                     className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-44"
                   >
-                    <li onClick={logout} className="cursor-pointer mx-auto">
+                    <li className="cursor-pointer mx-auto">
                       <Link to={'/'} className="justify-between">
                         Profile
                         <span className="badge">New</span>

@@ -19,6 +19,7 @@ const Signup = () => {
     displayName: '',
     email: '',
     password: '',
+    confirmPassword: '',
   });
 
   const [error, setError] = useState({
@@ -49,8 +50,9 @@ const Signup = () => {
 
   // Getting password on blur
   const getPasswordOnBlur = (event) => {
-    const validTest = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+    const validTest = /(?=.*[0-9])/;
     const validPassword = validTest.test(event.target.value);
+    console.log(event.target.value);
     if (validPassword) {
       setCreateUser({ ...createUser, password: event.target.value });
       setError({ ...error, password: '' });
@@ -63,20 +65,26 @@ const Signup = () => {
     }
   };
 
+  // Getting Confirm Password on Blur
+  const getConfirmPasswordValue = (event) => {
+    const confirmPassword = event.target.value;
+    setCreateUser({ ...createUser, confirmPassword: event.target.value });
+    console.log(confirmPassword);
+  };
+
   //   Creating user
   const handleSignup = async (event) => {
     event.preventDefault();
-    const confirmPassword = event.target.confirmPassword.value;
-    if (confirmPassword === createUser.password) {
-      await createUserWithEmailAndPassword(
-        createUser.email,
-        createUser.password
-      );
-      setError({ ...error, general: '' });
-      toast.success('Created User!');
-    } else {
-      setError({ ...error, general: 'Password must be same!' });
-    }
+    // const confirmPassword = event.target.confirmPassword.value;
+    // if (createUser.confirmPassword === createUser.password) {
+    //   createUserWithEmailAndPassword(createUser.email, createUser.password);
+    //   setError({ ...error, general: '' });
+    //   toast.success('Created User!');
+    // } else {
+    //   setError({ ...error, general: 'Password must be same!' });
+    // }
+    await createUserWithEmailAndPassword(createUser.email, createUser.password);
+    toast.success('Created User!');
 
     // Updated Profile Name
     await updateProfile({ displayName: createUser.displayName });
@@ -166,10 +174,10 @@ const Signup = () => {
                 <div className="mt-4">
                   <label className="block">Confirm Password </label>
                   <input
+                    onBlur={getConfirmPasswordValue}
                     type="password"
                     id="confirmPassword"
                     placeholder="Password"
-                    required
                     className="w-full px-4 py-2 mt-2 text-black border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                   />
                 </div>
