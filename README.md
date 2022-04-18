@@ -8,17 +8,20 @@ This project is for Independent Service providers. It was created with create-re
 
 ## Features
 
+- Wild life photographer's featured services
 - Customer reviews
-- Analyst of a single product
-- Dashboard for that product and company
-- Blogs for that product
+- Protected Route
+- Email & Password or Google Sign In/Up
+- Fully Responsive
+- theSyed's Blogs
+- The owner goals
 - more coming soon
 
-## Tech Stack
+## Technologies
 
-**Client:** React, React Router, Tailwind,
+**Client:** React, React Router, TailwindCSS,
 
-**Backend:** Firebase (authentication)
+**Server:** Firebase
 
 ## How to run this project
 
