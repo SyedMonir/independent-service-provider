@@ -46,7 +46,7 @@ const Header = () => {
                   <NavLink to={'/blogs'}>Blogs</NavLink>
                 </li>
                 <li>
-                  <NavLink to={'/about-me'}>About me</NavLink>
+                  <NavLink to={'/about'}>About me</NavLink>
                 </li>
                 {user?.uid ? (
                   <li
@@ -86,7 +86,7 @@ const Header = () => {
                 <NavLink to={'/blogs'}>Blogs</NavLink>
               </li>
               <li>
-                <NavLink to={'/about-me'}>About me</NavLink>
+                <NavLink to={'/about'}>About me</NavLink>
               </li>
 
               {user?.uid ? (
