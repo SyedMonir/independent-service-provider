@@ -52,7 +52,7 @@ const Signup = () => {
   const getPasswordOnBlur = (event) => {
     const validTest = /(?=.*[0-9])/;
     const validPassword = validTest.test(event.target.value);
-    console.log(event.target.value);
+    // console.log(event.target.value);
     if (validPassword) {
       setCreateUser({ ...createUser, password: event.target.value });
       setError({ ...error, password: '' });
@@ -67,9 +67,7 @@ const Signup = () => {
 
   // Getting Confirm Password on Blur
   const getConfirmPasswordValue = (event) => {
-    const confirmPassword = event.target.value;
     setCreateUser({ ...createUser, confirmPassword: event.target.value });
-    console.log(confirmPassword);
   };
 
   //   Creating user

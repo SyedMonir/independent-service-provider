@@ -12,7 +12,7 @@ const Testimonials = () => {
           Clients Feedback
         </h2>
         <div className="flex flex-wrap -m-4">
-          <div className="p-4 md:w-1/2 w-full">
+          <div className="p-4 md:w-1/2 w-full animate__animated animate__fadeInLeft">
             <div className="h-full bg-gray-800 bg-opacity-40 p-8 rounded">
               <FaQuoteRight className="block w-5 h-5 text-gray-500 mb-4" />
               <p className="leading-relaxed mb-6">
@@ -36,7 +36,7 @@ const Testimonials = () => {
             </div>
           </div>
 
-          <div className="p-4 md:w-1/2 w-full">
+          <div className="p-4 md:w-1/2 w-full animate__animated animate__fadeInRight">
             <div className="h-full bg-gray-800 bg-opacity-40 p-8 rounded">
               <FaQuoteRight className="block w-5 h-5 text-gray-500 mb-4" />
               <p className="leading-relaxed mb-6">

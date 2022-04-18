@@ -7,7 +7,7 @@ const Service = ({ service }) => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="card card-side bg-[#2a303c] shadow-xl">
+      <div className="animate__animated animate__fadeInUp card card-side bg-[#2a303c] shadow-xl">
         <figure
           className="cursor-pointer"
           onClick={() => navigate(`/service-details/${id}`)}
