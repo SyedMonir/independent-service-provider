@@ -25,7 +25,7 @@ const Checkout = () => {
                 <h2 className="mb-4 font-bold md:text-xl text-heading ">
                   Shipping Address
                 </h2>
-                <form className="justify-center w-full mx-auto">
+                <div className="justify-center w-full mx-auto">
                   <div className="">
                     <div className="space-x-0 lg:flex lg:space-x-4">
                       <div className="w-full lg:w-1/2">
@@ -145,13 +145,17 @@ const Checkout = () => {
                     </div>
 
                     <div className="mt-4 mb-10">
-                      <button className="w-full px-6 py-2 text-blue-200 bg-black hover:bg-gray-900">
+                      <label
+                        htmlFor="my-modal-6"
+                        className="btn modal-button w-full px-6 py-2 text-blue-200 bg-black hover:bg-gray-900"
+                      >
                         Process
-                      </button>
+                      </label>
                     </div>
                   </div>
-                </form>
+                </div>
               </div>
+
               <div className="flex flex-col w-full ml-0 lg:ml-12 lg:w-2/5">
                 <div className="pt-12 md:pt-0 2xl:ps-4">
                   <h2 className="text-xl font-bold">Order Summary</h2>
@@ -169,8 +173,11 @@ const Checkout = () => {
                           <h2 className="text-xl font-bold text-white">
                             {selectedService?.name}
                           </h2>
-                          <p className="text-sm">
-                            {selectedService?.description.slice(0, 30)}
+                          <p
+                            className="text-sm"
+                            title={selectedService?.description}
+                          >
+                            {selectedService?.description.slice(0, 25) + '..'}
                           </p>
                           <span className="text-white">
                             Cost: $ {selectedService?.price}{' '}
@@ -198,6 +205,28 @@ const Checkout = () => {
                     </span>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          {/*  Modal */}
+          <input type="checkbox" id="my-modal-6" className="modal-toggle" />
+          <div className="modal modal-bottom sm:modal-middle">
+            <div className="modal-box">
+              <h3 className="font-bold text-lg text-center">
+                Thank you! For hiring me!
+              </h3>
+              <p class="py-4">
+                You've been selected{' '}
+                <span className="text-lg font-bold text-white">
+                  {selectedService?.name}
+                </span>{' '}
+                service. Congratulation You get another service full of free!
+              </p>
+              <div className="modal-action">
+                <label htmlFor="my-modal-6" className="btn">
+                  OK!
+                </label>
               </div>
             </div>
           </div>
